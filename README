@@ -3,3 +3,23 @@ This is an unofficial vendor setup for Heroc devices.
 It was pieced together by Cyanogen. A shipping device is required to pull
 the proprietary files needed to build the system (via adb).  Run the
 "extract-files.sh" script before building.
+
+To make android, first follow the instructions over at source.android.com/download until you installed repo
+from there download the local_manifest.xml and put it in .repo
+from there you will do this
+
+$repo init -u git://github.com/cyanogen/android.git
+$repo sync
+
+the sync should take a few hours, take a nap or have some coffee in the meantime
+
+from there source the envsetup.sh
+
+$ . build/envsetup.sh
+
+then lunch cyanogen_dream_sapphire-eng and buid cyanogenmod with make otapakage
+
+$lunch cyanogen_dream_sapphire-eng
+$make otapackage
+
+This will make an update.zip for you to distribute. have fun
