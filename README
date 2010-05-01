@@ -5,7 +5,7 @@ the proprietary files needed to build the system (via adb).  Run the
 "extract-files.sh" script before building.
 
 To make android, first follow the instructions over at source.android.com/download until you installed repo
-from there download the local_manifest.xml and put it in .repo
+from there download the manifest.xml and put it in .repo
 from there you will do this
 
 $repo init -u git://github.com/cyanogen/android.git
