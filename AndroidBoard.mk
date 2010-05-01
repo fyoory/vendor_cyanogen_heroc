@@ -21,6 +21,12 @@ ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/proprietary/libhtc_acoustic.so | $(ACP)
 	$(transform-prebuilt-to-target)
 
+file := $(TARGET_OUT)/xbin/echo3
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/proprietary/echo3 | $(ACP)
+        $(transform-prebuilt-to-target)
+
+
 file := $(TARGET_OUT)/lib/libaudioeq.so
 ALL_PREBUILT += $(file)
 $(file) : $(LOCAL_PATH)/proprietary/libaudioeq.so | $(ACP)
