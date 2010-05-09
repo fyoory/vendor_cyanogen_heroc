@@ -7,18 +7,29 @@ the proprietary files needed to build the system (via adb).  Run the
 To make android, first follow the instructions over at source.android.com/download until you installed repo
 from there you will do this
 
-$repo init -u git://github.com/cyanogen/android.git
+$repo init -u git://github.com/cyanogen/android.git -b eclair-ds
 $repo sync
 
 the sync should take a few hours, take a nap or have some coffee in the meantime
+
+now youre going to need to remove the dream_sapphire vendor tree and replace it with this one
+
+$rm -fr vendor/htc/dream_sapphire
+$cp -r /path/to/my/vendor/ vendor/htc/dream_sapphire
+
+after thats done you'll need to extract proprietary bits. plug your phone into your computer, make sure adb has proper permissions, then
+
+$pushd vendor/htc/dream_sapphire
+$./extract-files.sh
+$popd
 
 from there source the envsetup.sh
 
 $ . build/envsetup.sh
 
-then lunch cyanogen_dream_sapphire-eng and buid cyanogenmod with make otapakage
+then lunch cyanogen_dream_sapphire-eng and build cyanogenmod with make 
 
 $lunch cyanogen_dream_sapphire-eng
-$make otapackage
+$make -j4
 
-This will make an update.zip for you to distribute. have fun
+this will take a long time depending on your computing power. after its done, your product will be in out/target/product/dream_sapphire/
